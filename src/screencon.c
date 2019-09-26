@@ -15,13 +15,13 @@ void reconfigure() {
             system("mons -o");
             break;
         case 2:
-            system("mons -e left");
+            system("mons -e right");
             break;
         default:
             break;
     }
 
-    system("xsetwacom set 'Wacom HID 48ED Finger' MapToOutput eDP-1");
+    system("xsetwacom set 'Wacom HID 48ED Finger touch' MapToOutput eDP-1");
 
     system("nitrogen --restore");
 }
