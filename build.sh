@@ -11,4 +11,4 @@ fi
 
 chmod u+x build/screencon
 
-build/screencon
+sudo cp build/screencon /usr/local/bin/screencon
