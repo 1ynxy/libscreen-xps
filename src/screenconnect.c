@@ -34,15 +34,17 @@ int main (int argc, char const *argv[]) {
 
         char line[64];
 
-        while (fgets(line, 256, mons) != NULL) strcat(state, line);
+        while (fgets(line, 64, mons) != NULL) {
+            fprintf(stderr, line);
+
+            strcat(state, line);
+        }
 
         pclose(mons);
 
         // check for change in state
 
-        char tmp[2] = { state[10], '\0' };
-
-        int new_count = atoi(tmp);
+        int new_count = state[10] - '0';
 
         if (new_count != count) {
             count = new_count;
@@ -50,9 +52,9 @@ int main (int argc, char const *argv[]) {
             reconfigure();
         }
 
-        // wait for 2 seconds
-
         state[0] = '\0';
+
+        // wait for 2 seconds
 
         sleep(1);
     }
