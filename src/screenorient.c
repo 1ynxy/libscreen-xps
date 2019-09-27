@@ -11,9 +11,15 @@ void reorient() {
     switch (state) {
         case 0:
             system("xrandr --output eDP-1 --rotate normal");
+
+            system("xsetwacom set 'Wacom HID 48ED Finger touch' rotate none");
+
             break;
         case 1:
             system("xrandr --output eDP-1 --rotate inverted");
+
+            system("xsetwacom set 'Wacom HID 48ED Finger touch' rotate half");
+
             break;
         default:
             break;

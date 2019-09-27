@@ -13,9 +13,11 @@ void reconfigure() {
     switch (count) {
         case 1:
             system("mons -o");
+            
             break;
         case 2:
             system("mons -e right");
+
             break;
         default:
             break;
