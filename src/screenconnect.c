@@ -34,11 +34,7 @@ int main (int argc, char const *argv[]) {
 
         char line[64];
 
-        while (fgets(line, 64, mons) != NULL) {
-            fprintf(stderr, line);
-
-            strcat(state, line);
-        }
+        while (fgets(line, 64, mons) != NULL) strcat(state, line);
 
         pclose(mons);
 

@@ -16,15 +16,15 @@ gcc -O2 -o build/screenorient src/screenorient.c
 
 # exit if failed
 
-[[ -f build/screenconnect ]] && [[ -f build/screenorient ]] && exit
+[[ ! -f build/screenconnect ]] || [[ ! -f build/screenorient ]] && exit
 
 chmod u+x build/screenconnect
 chmod u+x build/screenorient
 
 # run or install
 
-[[ $# > 0 ]] && [[ $1 == "run" ]] && build/screenconnect &
-[[ $# > 0 ]] && [[ $1 == "run" ]] && build/screenorient &
+[[ $# > 0 ]] && [[ $1 == "run-connect" ]] && build/screenconnect
+[[ $# > 0 ]] && [[ $1 == "run-orient" ]] && build/screenorient
 
 [[ $# > 0 ]] && [[ $1 == "install" ]] && sudo cp build/screenconnect /usr/local/bin/screenconnect
 [[ $# > 0 ]] && [[ $1 == "install" ]] && sudo cp build/screenorient /usr/local/bin/screenorient

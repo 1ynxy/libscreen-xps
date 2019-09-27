@@ -25,16 +25,35 @@ void reorient() {
 int main (int argc, char const *argv[]) {
     FILE* orient = popen("monitor-sensor", "r");
 
-    while (1) {
-        // read in accelerometer data
+    // read in accelerometer data
 
-        char line[64];
+    char line[64];
 
-        while (fgets(line, 64, orient)) fprintf(stderr, line);
+    char test[] = "Accelerometer orientation changed: ";
 
-        // wait for 2 seconds
+    while (fgets(line, 64, orient)) {
+        char* out = strstr(line, test);
 
-        sleep(1);
+        if (out) {
+            out += sizeof(test) - 1;
+
+            switch (out[0]) {
+                case 'n':
+                    state = 0;
+
+                    reorient();
+
+                    break;
+                case 'b':
+                    state = 1;
+                    
+                    reorient();
+
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     pclose(orient);
