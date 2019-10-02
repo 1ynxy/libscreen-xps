@@ -24,6 +24,8 @@ void reconfigure() {
     }
 
     system("xsetwacom set 'Wacom HID 48ED Finger touch' MapToOutput eDP-1");
+    system("xsetwacom set 'Wacom HID 48ED Pen stylus' MapToOutput eDP-1");
+    system("xsetwacom set 'Wacom HID 48ED Pen eraser' MapToOutput eDP-1");
 
     system("nitrogen --restore");
 }
