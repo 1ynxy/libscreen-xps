@@ -13,12 +13,16 @@ void reorient() {
             system("xrandr --output eDP-1 --rotate normal");
 
             system("xsetwacom set 'Wacom HID 48ED Finger touch' rotate none");
+            system("xsetwacom set 'Wacom HID 48ED Pen stylus' rotate none");
+            system("xsetwacom set 'Wacom HID 48ED Pen eraser' rotate none");
 
             break;
         case 1:
             system("xrandr --output eDP-1 --rotate inverted");
 
             system("xsetwacom set 'Wacom HID 48ED Finger touch' rotate half");
+            system("xsetwacom set 'Wacom HID 48ED Pen stylus' rotate half");
+            system("xsetwacom set 'Wacom HID 48ED Pen eraser' rotate half");
 
             break;
         default:
